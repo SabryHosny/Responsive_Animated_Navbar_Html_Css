@@ -1,0 +1,165 @@
+:root {
+  font-size: 16px;
+  font-family: "Open Sans";
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: white;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+/* change the scrollbar shape ofthe body  */
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+body::-webkit-scrollbar-track {
+  background-color: #1e1e24;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #6649b8;
+}
+
+/* #################################################################################### */
+
+/* NOTE: rem unit => refers to the font-size into root element, 
+since we define it as 16px, 5rem = 5*16px = 80px */
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+  border: 1px solid #6649b8;
+}
+main h1 {
+  color: var(--bg-secondary);
+}
+main p {
+  line-height: 1.8;
+  font-size: 14px;
+  color: var(--bg-primary);
+}
+@media (max-width: 767px) {
+  main {
+    margin: 0 1.5rem;
+    padding: 1rem;
+    border: 1px solid #6649b8;
+  }
+  main h1 {
+    text-align: center;
+  }
+}
+
+/* Sart Navbar ============================= */
+.navbar {
+  width: 5rem; /* NOTE: the same as main margin-left */
+  height: 100vh;
+  background-color: var(--bg-primary);
+  position: fixed;
+}
+.navbar * {
+  /* border: 0.5px solid white; */
+}
+.navbar .navbar-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.navbar .navbar-nav .nav-item {
+  padding: 1rem;
+  /* filter: grayscale(100%); */
+}
+.navbar .navbar-nav .nav-item:last-child {
+  margin-top: auto;
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--text-primary);
+  filter: opacity(0.5);
+}
+.navbar .navbar-nav .nav-item .nav-link i {
+  font-size: 2.5rem;
+}
+.navbar .navbar-nav .nav-item .nav-link .link-text {
+  font-size: 1.2rem;
+}
+.navbar .navbar-nav .nav-item.logo .nav-link .link-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.navbar .navbar-nav .nav-item.logo .nav-link i {
+  transform: rotate(180deg);
+}
+.navbar .navbar-nav .nav-item .nav-link .link-text {
+  display: none;
+}
+/* ----- start hovering animation ------- */
+* {
+  transition: 0.25s;
+}
+.navbar:hover {
+  width: 16rem;
+}
+.navbar:hover .navbar-nav .nav-item .nav-link .link-text {
+  display: block;
+}
+.navbar:hover .navbar-nav .nav-item.logo .nav-link i {
+  transform: rotate(0deg);
+}
+.navbar:hover .navbar-nav .nav-item:hover {
+  background-color: var(--bg-secondary);
+}
+.navbar:hover .navbar-nav .nav-item .nav-link {
+  color: var(--text-secondary);
+  filter: opacity(0.6);
+}
+.navbar:hover .navbar-nav .nav-item:hover .nav-link {
+  color: #6649b8;
+  filter: opacity(1);
+}
+/* ----- end hovering animation ------- */
+/* ----- Start Responsive ------ */
+@media (max-width: 767px) {
+  .navbar {
+    width: 100%; /* NOTE: the same as main margin-left */
+    height: auto;
+    background-color: var(--bg-primary);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    z-index: 2;
+  }
+  .navbar .navbar-nav {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .navbar:hover {
+    width: 100%;
+  }
+  .navbar .navbar-nav .nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar:hover .navbar-nav .nav-item .nav-link .link-text {
+    display: none;
+  }
+  .navbar .navbar-nav .nav-item.logo {
+    display: none;
+  }
+}
+/* ----- End Responsive ------ */
+/* End Navbar ============================= */
